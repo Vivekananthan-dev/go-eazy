@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#CA3433" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO & Social Meta Tags -->
+    <title>GoEazy | Rent Rooms, PGs & Hostels Easily in Uttarakhand</title>
+    <meta name="description" content="GoEazy is the premier platform for finding and listing Rooms, PGs, and Hostels. Easy, verified, and student-friendly housing solutions in Dehradun and beyond." />
+    <meta property="og:title" content="GoEazy | Uttarakhand's Housing Standard" />
+    <meta property="og:description" content="Find verified PGs, Rooms, and Hostels in Dehradun & Srinagar with GoEazy's premium housing ecosystem." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <!-- Mapbox GL CSS + JS loaded from CDN (NOT bundled) to prevent
+         "Cannot access X before initialization" TDZ error in Vite/Rolldown
+         caused by mapbox-gl's internal circular dependencies in its Web Worker -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+    
+    <!-- Console Cleanup & Permissions Policy -->
+    <meta http-equiv="Permissions-Policy" content="accelerometer=(self), gyroscope=(self), magnetometer=(self), camera=(), microphone=(), geolocation=(self)">
+    <script>
+      (function() {
+        // Dynamic Tab Title
+        let originalTitle = document.title;
+        window.addEventListener('blur', () => {
+          document.title = 'Don\'t miss the best deals! | GoEazy';
+        });
+        window.addEventListener('focus', () => {
+          document.title = originalTitle;
+        });
+
+        const ignoreStrings = [
+          '[vite]',
+          '[Violation]',
+          'non-passive event listener',
+          'accelerometer is not allowed',
+          'devicemotion events are blocked',
+          'deviceorientation events are blocked',
+          'unsafe header',
+          'x-rtb-fingerprint-id',
+          'Permissions policy violation',
+          'Forced reflow',
+          'Mixed Content',
+          'local network request',
+          'request-id',
+          'accelerometer',
+          'sardine',
+          'biometric',
+          'requestAnimationFrame',
+          'message',
+          'took',
+          'handler',
+          'localhost:7070',
+          '[DEPRECATED]',
+          "Failed to launch 'tel:",
+          'preloaded using link preload but not used',
+          'Multiple readback operations',
+          'delete state for intermediate websites',
+          'aria-labelledby',
+          'autofilling',
+        ];
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        const originalLog = console.log;
+        const originalDebug = console.debug;
+        const originalInfo = console.info;
+        
+        const shouldIgnore = (args) => {
+          const strArgs = args.map(a => {
+            try { return typeof a === 'string' ? a : JSON.stringify(a); }
+            catch(e) { return ''; }
+          }).join(' ');
+          return ignoreStrings.some(s => strArgs.includes(s));
+        };
+
+        console.warn = function(...args) {
+          if (shouldIgnore(args)) return;
+          originalWarn.apply(console, args);
+        };
+        console.error = function(...args) {
+          if (shouldIgnore(args)) return;
+          originalError.apply(console, args);
+        };
+        console.log = function(...args) {
+          if (shouldIgnore(args)) return;
+          originalLog.apply(console, args);
+        };
+        console.debug = function(...args) {
+          if (shouldIgnore(args)) return;
+          originalDebug.apply(console, args);
+        };
+        console.info = function(...args) {
+          if (shouldIgnore(args)) return;
+          originalInfo.apply(console, args);
+        };
+
+        // Global Security & Anti-Copy Protection (DISABLED FOR DEVELOPMENT)
+        /*
+        document.addEventListener('contextmenu', e => e.preventDefault());
+
+        document.addEventListener('keydown', function(e) {
+          // Block F12 (DevTools)
+          if (e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+          }
+          // Block Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Inspect Element)
+          if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+            e.preventDefault();
+            return false;
+          }
+          // Block Ctrl+U (View Source)
+          if (e.ctrlKey && e.keyCode === 85) {
+            e.preventDefault();
+            return false;
+          }
+          // Block Ctrl+S (Save Page)
+          if (e.ctrlKey && e.keyCode === 83) {
+            e.preventDefault();
+            return false;
+          }
+        });
+        */
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
